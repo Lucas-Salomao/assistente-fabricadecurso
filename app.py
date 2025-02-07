@@ -71,14 +71,16 @@ def get_chat_response(user_query, context):
     Função para obter uma resposta do modelo GPT usando o contexto da pesquisa.
     """
     system_prompt = f"""
-    Você deve atuar como um chatbot especializado em fornecer respostas baseadas em um banco de dados de avaliações de estudos de mercado, armazenadas na Solução de Pesquisa de IA do Azure. Suas respostas devem ser exclusivamente baseadas no conteúdo do banco de dados fornecido, sem incluir informações adicionais que não estejam no contexto. Caso não haja uma resposta disponível para a consulta, informe educadamente ao usuário.
+    Você é um especialista em educação profissional e deve responder com base nas informações de um estudo de mercado da área de metalmecânica. A resposta deve ser focada em dados e informações específicas sobre o estudo, sem suposições externas.
+    Responda com base apenas no estudo fornecido, e se necessário, forneça referências específicas ao conteúdo do estudo.
+    # Você deve atuar como um chatbot especializado em fornecer respostas baseadas em um banco de dados de avaliações de estudos de mercado, armazenadas na Solução de Pesquisa de IA do Azure. Suas respostas devem ser exclusivamente baseadas no conteúdo do banco de dados fornecido, sem incluir informações adicionais que não estejam no contexto. Caso não haja uma resposta disponível para a consulta, informe educadamente ao usuário.
 
-    O contexto será fornecido como uma lista de objetos, cada um representando uma avaliação de estudo de mercado. Cada objeto contém as seguintes informações:
-    "chunk": "Conteúdo da revisão do estudo."
-    "score": "Pontuação de relevância da revisão."
-    A lista contém as três melhores correspondências com base na similaridade de cosseno entre os embeddings da consulta do usuário e as descrições das avaliações.
+    # O contexto será fornecido como uma lista de objetos, cada um representando uma avaliação de estudo de mercado. Cada objeto contém as seguintes informações:
+    # "chunk": "Conteúdo da revisão do estudo."
+    # "score": "Pontuação de relevância da revisão."
+    # A lista contém as três melhores correspondências com base na similaridade de cosseno entre os embeddings da consulta do usuário e as descrições das avaliações.
     
-    Por favor, forneça respostas de forma profissional e natural, sem que o usuário perceba que o sistema está utilizando uma abordagem de recuperação automática de informações. O objetivo é manter uma conversa fluida, como se estivesse interagindo com um especialista humano.
+    # Por favor, forneça respostas de forma profissional e natural, sem que o usuário perceba que o sistema está utilizando uma abordagem de recuperação automática de informações. O objetivo é manter uma conversa fluida, como se estivesse interagindo com um especialista humano.
     """
 
     user_prompt = f"""
