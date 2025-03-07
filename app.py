@@ -20,7 +20,7 @@ gpt_engine = os.getenv("GPT_ENGINE")
 # Inicializar o cliente Azure OpenAI
 azure_openai_client = AzureOpenAI(
     api_key=azure_openai_key,
-    api_version="2024-02-15-preview",
+    api_version="2024-05-01-preview",
     azure_endpoint=azure_openai_endpoint
 )
 
